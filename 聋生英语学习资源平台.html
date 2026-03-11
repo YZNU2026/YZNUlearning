@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聆语英语 - 聋生英语资源平台</title>
+    <!-- 引入外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置Tailwind自定义主题 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6', // 主色调（柔和蓝）
+                        secondary: '#10B981', // 辅助色（清新绿）
+                        neutral: '#F3F4F6', // 中性色
+                        dark: '#1F2937',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .btn-primary {
+                @apply bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all;
+            }
+            .btn-secondary {
+                @apply bg-secondary text-white px-4 py-2 rounded-lg hover:bg-secondary/90 transition-all;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa fa-volume-up text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-primary">聆语英语</span>
+            </a>
+            
+            <!-- 导航菜单 - 桌面版 -->
+            <nav class="hidden md:flex gap-6">
+                <a href="#home" class="font-medium hover:text-primary">首页</a>
+                <a href="#videos" class="font-medium hover:text-primary">视频资源</a>
+                <a href="#materials" class="font-medium hover:text-primary">教学材料</a>
+                <a href="#training" class="font-medium hover:text-primary">互动训练</a>
+                <a href="#contact" class="font-medium hover:text-primary">联系我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-dark text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md px-4 py-2">
+            <nav class="flex flex-col gap-3">
+                <a href="#home" class="font-medium hover:text-primary py-1">首页</a>
+                <a href="#videos" class="font-medium hover:text-primary py-1">视频资源</a>
+                <a href="#materials" class="font-medium hover:text-primary py-1">教学材料</a>
+                <a href="#training" class="font-medium hover:text-primary py-1">互动训练</a>
+                <a href="#contact" class="font-medium hover:text-primary py-1">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首页横幅 -->
+    <section id="home" class="bg-gradient-to-r from-primary/90 to-secondary/90 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-6">聋生英语学习资源平台</h1>
+                <p class="text-lg md:text-xl mb-8">专为聋生打造的英语学习资源库，涵盖视频教程、教学材料、互动训练，助力聋生高效学习英语</p>
+                <a href="#videos" class="btn-primary inline-block">
+                    <i class="fa fa-play-circle mr-2"></i>开始学习
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频资源模块 -->
+    <section id="videos" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">视频学习资源</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">精选适合聋生的英语教学视频，点击即可学习完整内容</p>
+            </div>
+            
+            <!-- 视频卡片列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 视频卡片1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/340?random=1" alt="英语字母发音教学" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="fa fa-play-circle text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">英语字母书写教学（手语版）</h3>
+                        <p class="text-gray-600 mb-4">适合入门级聋生，结合手语演示26个英文字母的书写</p>
+                        <a href="https://bilibili.com/video/BV1234567890" target="_blank" class="btn-primary w-full block text-center">
+                            <i class="fa fa-external-link mr-2"></i>观看视频
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/340?random=2" alt="日常英语对话" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="fa fa-play-circle text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">日常英语对话（手语讲解）</h3>
+                        <p class="text-gray-600 mb-4">生活场景英语对话教学，搭配手语演示，提升实用交流能力</p>
+                        <a href="https://bilibili.com/video/BV0987654321" target="_blank" class="btn-primary w-full block text-center">
+                            <i class="fa fa-external-link mr-2"></i>观看视频
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 视频卡片3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/340?random=3" alt="英语语法基础" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <i class="fa fa-play-circle text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">英语语法基础（课程+手语）</h3>
+                        <p class="text-gray-600 mb-4">零基础语法教学，用手语讲解核心语法知识点</p>
+                        <a href="https://www.bilibili.com/video/BV14GwFzwE8X/" target="_blank" class="btn-primary w-full block text-center">
+                            <i class="fa fa-external-link mr-2"></i>观看视频
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 加载更多按钮 -->
+            <div class="text-center mt-10">
+                <button class="btn-secondary">
+                    <i class="fa fa-refresh mr-2"></i>加载更多视频
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教学材料模块 -->
+    <section id="materials" class="py-16 bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">教学材料下载</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">提供各类聋生英语学习材料，包括教材、练习题、手语对照手册等</p>
+            </div>
+            
+            <!-- 材料分类标签 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button class="px-4 py-2 bg-primary text-white rounded-full">全部材料</button>
+                <button class="px-4 py-2 bg-white text-dark rounded-full hover:bg-primary/10">入门教材</button>
+                <button class="px-4 py-2 bg-white text-dark rounded-full hover:bg-primary/10">语法练习</button>
+                <button class="px-4 py-2 bg-white text-dark rounded-full hover:bg-primary/10">词汇手册</button>
+                <button class="px-4 py-2 bg-white text-dark rounded-full hover:bg-primary/10">手语对照</button>
+            </div>
+            
+            <!-- 材料列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 材料卡片1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-file-pdf-o text-red-500 text-2xl mr-3"></i>
+                        <h3 class="font-bold">聋生英语入门绘本教材</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">适合低年级聋生的英语入门绘本教材，包含字母、基础词汇</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">PDF / 2.4MB</span>
+                        <a href="https://pan.baidu.com/s/1uJgor3zldX6_onRcxNLERg?pwd=54gA" class="text-primary hover:underline">
+                            <i class="fa fa-download mr-1"></i>下载
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 材料卡片2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-file-word-o text-blue-500 text-2xl mr-3"></i>
+                        <h3 class="font-bold">英语词汇手语对照手册</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">常用英语词汇与手语动作对照，附高清图解</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">DOC / 1.8MB</span>
+                        <a href="#" class="text-primary hover:underline">
+                            <i class="fa fa-download mr-1"></i>下载
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 材料卡片3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-file-excel-o text-green-500 text-2xl mr-3"></i>
+                        <h3 class="font-bold">英语语法练习题</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">分年级语法练习题，附详细答案解析</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">XLS / 3.2MB</span>
+                        <a href=" https://pan.baidu.com/s/1FJkgIYTuIveNFAF9sP9pSg?pwd=2st8" class="text-primary hover:underline">
+                            <i class="fa fa-download mr-1"></i>下载
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 材料卡片4 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-file-powerpoint-o text-orange-500 text-2xl mr-3"></i>
+                        <h3 class="font-bold">课堂教学PPT</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">专为聋生英语课堂设计的PPT，含手语演示页</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">PPT / 4.5MB</span>
+                        <a href="#" class="text-primary hover:underline">
+                            <i class="fa fa-download mr-1"></i>下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 查看全部按钮 -->
+            <div class="text-center mt-10">
+                <button class="btn-secondary">
+                    <i class="fa fa-folder-open mr-2"></i>查看全部材料
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 互动训练模块 -->
+    <section id="training" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">互动训练</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">通过互动练习巩固英语知识，提升学习效果</p>
+            </div>
+            
+            <!-- 训练卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 训练卡片1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <img src="https://picsum.photos/600/200?random=4" alt="词汇记忆训练" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">词汇记忆训练</h3>
+                        <p class="text-gray-600 mb-4">通过图文配对、拼写练习等方式记忆英语词汇</p>
+                        <a href="#" class="btn-primary w-full block text-center">
+                            <i class="fa fa-gamepad mr-2"></i>开始训练
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 训练卡片2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <img src="https://picsum.photos/600/200?random=5" alt="句子结构练习" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">句子结构练习</h3>
+                        <p class="text-gray-600 mb-4">通过句子排序、填空掌握基本句型结构</p>
+                        <a href="#" class="btn-primary w-full block text-center">
+                            <i class="fa fa-gamepad mr-2"></i>开始训练
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 训练卡片3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <img src="https://picsum.photos/600/200?random=6" alt="手语对话模拟" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">手语对话模拟</h3>
+                        <p class="text-gray-600 mb-4">模拟真实场景对话，结合手语进行互动练习</p>
+                        <a href="#" class="btn-primary w-full block text-center">
+                            <i class="fa fa-gamepad mr-2"></i>开始训练
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">联系我们</h2>
+                    <p class="text-gray-600">如有资源需求或问题反馈，请联系我们2047508935@qq.com</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2" for="name">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="请输入您的姓名">
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2" for="email">邮箱</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="请输入您的邮箱">
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2" for="message">留言内容</label>
+                            <textarea id="message" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="请输入您的留言..."></textarea>
+                        </div>
+                        
+                        <div class="md:col-span-2 text-center">
+                            <button type="submit" class="btn-primary px-8 py-3">
+                                <i class="fa fa-paper-plane mr-2"></i>提交留言
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">聆语英语</h3>
+                    <p class="text-gray-400">专为聋生打造的英语学习资源平台，助力聋生英语学习</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">快速链接</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white">首页</a></li>
+                        <li><a href="#videos" class="hover:text-white">视频资源</a></li>
+                        <li><a href="#materials" class="hover:text-white">教学材料</a></li>
+                        <li><a href="#training" class="hover:text-white">互动训练</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">资源分类</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">入门英语</a></li>
+                        <li><a href="#" class="hover:text-white">中级英语</a></li>
+                        <li><a href="#" class="hover:text-white">高级英语</a></li>
+                        <li><a href="#" class="hover:text-white">手语对照</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">联系我们</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa fa-envelope mr-2"></i> 2047508935@qq.com</li>
+                        <li><i class="fa fa-phone mr-2"></i> 15207056924</li>
+                        <li><i class="fa fa-map-marker mr-2"></i> 江西省南昌市豫章师范学院</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 聆语英语 - 聋生英语资源平台 豫章师范学院手语与特殊人群语言服务中心 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换菜单图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = menuBtn.querySelector('i');
+                        icon.classList.replace('fa-times', 'fa-bars');
+                    }
+                }
+            });
+        });
+        
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.add('bg-white/95');
+                header.classList.remove('bg-white');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('bg-white/95');
+                header.classList.add('bg-white');
+            }
+        });
+    </script>
+</body>
+</html>
